@@ -53,10 +53,21 @@
 </head>
 <body>
 
-  <!-- Optional: background music -->
-  <audio autoplay loop hidden>
+<audio id="bgMusic" loop hidden>
   <source src="balisong.mp3" type="audio/mpeg">
-  </audio>
+</audio>
+
+<script>
+  window.addEventListener('click', function () {
+    const music = document.getElementById('bgMusic');
+    if (music.paused) {
+      music.play().catch((e) => {
+        console.log("Autoplay blocked:", e);
+      });
+    }
+  }, { once: true });
+</script>
+
 
   <!-- Clickable bunny image -->
   <img src="1000000404.png" alt="bunny" class="heart" onclick="showLetter()">
