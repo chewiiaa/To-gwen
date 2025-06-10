@@ -53,20 +53,34 @@
 </head>
 <body>
 
-<audio id="bgMusic" loop hidden>
-  <source src="balisong.mp3" type="audio/mpeg">
-</audio>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Test</title>
+</head>
+<body>
+  <h1>Click Anywhere to Play</h1>
+  
+  <audio id="bgMusic" loop>
+    <source src="balisong.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-<script>
-  window.addEventListener('click', function () {
-    const music = document.getElementById('bgMusic');
-    if (music.paused) {
-      music.play().catch((e) => {
-        console.log("Autoplay blocked:", e);
-      });
-    }
-  }, { once: true });
-</script>
+  <script>
+    window.addEventListener('click', function () {
+      const music = document.getElementById('bgMusic');
+      if (music.paused) {
+        music.play().catch(err => {
+          console.log('Error playing audio:', err);
+        });
+      }
+    }, { once: true });
+  </script>
+</body>
+</html>
+
 
 
   <!-- Clickable bunny image -->
